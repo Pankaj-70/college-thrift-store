@@ -1,9 +1,11 @@
 import React from 'react'
-import TopBar from '../layout/TopBar'
+import TopBar from "../layout/TopBar";
+import Navbar from "../layout/Navbar";
 const Header = () => {
   return (
     <div>
-      <TopBar />
+        <TopBar />
+        <Navbar />
     </div>
   )
 }

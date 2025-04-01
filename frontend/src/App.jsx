@@ -1,8 +1,7 @@
-import { BrowserRouter,Routes,Route } from "react-router-dom"
-import UserLayout from "./pages/UserLayout"
-
-function App() {
-  
+import React from "react";
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import UserLayout from "./page/UserLayout";
+const App = () => {
   return (
     <BrowserRouter>
       <Routes>
@@ -10,6 +9,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   )
-}
+};
 
-export default App
+export default App;
