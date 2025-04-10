@@ -5,7 +5,7 @@ import CartContent from '../cart/CartContent';
 const CartDrawer = ({ isDrawerOpen, toggleDrawer }) => {
     return (
         <div
-            className={`fixed top-0 right-0 w-3/4 sm:w-1/2 md:w-1/4 flex flex-col bg-white h-full shadow-lg transform transition-transform duration-300 z-50 ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
+            className={`fixed top-0 right-0 w-3/4 sm:w-3/4 md:w-[30rem] flex flex-col bg-white h-full shadow-lg transform transition-transform duration-300 z-50 ${isDrawerOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
             <div className='flex justify-end p-4'>
                 <button onClick={toggleDrawer}>
