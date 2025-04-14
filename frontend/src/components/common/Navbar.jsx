@@ -8,11 +8,15 @@ import { HiOutlineUser, HiShoppingCart, HiBars3 } from "react-icons/hi2";
 
 const Navbar = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [navDrawerOpen, setNavDrawerOpen] = useState(false);
   let a = 0;
 
   const toggleDrawer = () => {
     setIsDrawerOpen(!isDrawerOpen);
-    console.log("Pressed ", a);
+  }
+
+  const toggleNavDrawer = () => {
+    setNavDrawerOpen(!navDrawerOpen);
   }
 
   return (
@@ -76,7 +80,7 @@ const Navbar = () => {
             <SearchBar></SearchBar>
           </div>
 
-          <button className="md:hidden hover:text-black cursor-pointer">
+          <button className="md:hidden hover:text-black cursor-pointer" onClick={toggleNavDrawer}>
             <HiBars3 className="h-7 w-7 text-gray-700"></HiBars3>
           </button>
         </div>
@@ -87,7 +91,7 @@ const Navbar = () => {
       <CartDrawer isDrawerOpen={isDrawerOpen} toggleDrawer={toggleDrawer}></CartDrawer>
 
       {/* Mobile Navigation */}
-      <MobileNavigation />
+      <MobileNavigation toggleNavDrawer={toggleNavDrawer} navDrawerOpen={navDrawerOpen} />
     </>
   );
 };
