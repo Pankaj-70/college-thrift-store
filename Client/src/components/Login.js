@@ -21,7 +21,6 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Send a POST request to log in the user
     const response = await fetch(
       `${process.env.REACT_APP_BASE_URL}/api/users/login`,
       {
@@ -33,7 +32,7 @@ const Login = () => {
     const data = await response.json();
     if (response.ok) {
       login({
-        id: data.user._id, // You should modify this to match your response
+        id: data.user._id,
         name: data.user.fullName,
         college: data.user.college,
       });
@@ -46,43 +45,50 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-900">
-      <div className="bg-white p-8 rounded-lg shadow-lg sm:w-96 md:w-1/2">
-        <h1 className="text-3xl font-semibold text-gray-900 mb-4">Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-800 px-4">
+      <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl p-8">
+        <h1 className="text-4xl font-bold text-center text-gray-800 mb-6">
+          Welcome Back
+        </h1>
+        <p className="text-center text-gray-500 mb-6 font-mono">
+          Please login to your account
+        </p>
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
             <input
-              type="text"
+              type="email"
               name="email"
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full py-2 px-4 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full py-3 px-5 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
             />
           </div>
-          <div className="mb-4">
+          <div>
             <input
               type="password"
               name="password"
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className="w-full py-2 px-4 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+              className="w-full py-3 px-5 rounded-lg bg-gray-100 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-500 transition"
             />
           </div>
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition duration-300"
+            className="w-full py-3 px-5 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition duration-300"
           >
-            Login
+            Sign In
           </button>
         </form>
-        <p className="text-gray-500 mt-4 text-center">
+        <p className="text-center text-gray-500 mt-6">
           Don't have an account?{" "}
-          <a href="/register" className="text-yellow-500 hover:text-gray-900">
+          <a
+            href="/register"
+            className="text-yellow-500 hover:text-gray-800 font-medium"
+          >
             Register here
           </a>
-          .
         </p>
       </div>
     </div>

@@ -20,7 +20,8 @@ const UserProfile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user || user.id !== id) {
+    console.log(user);
+    if (!user) {
       navigate("/login");
     }
     fetch(`${process.env.REACT_APP_BASE_URL}/api/users/${id}`)
